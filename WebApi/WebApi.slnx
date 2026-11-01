@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AppLogic/AppLogic.csproj" />
+  <Project Path="DataAccess/DataAccess.csproj" />
+  <Project Path="Domain/Domain.csproj" />
+  <Project Path="WebApi/WebApi.csproj" />
+</Solution>
