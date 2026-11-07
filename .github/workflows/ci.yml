@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: WebApi
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Instalar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restaurar dependencias
+        run: dotnet restore
+
+      - name: Compilar
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Ejecutar las pruebas
+        run: dotnet test --no-build --configuration Release
